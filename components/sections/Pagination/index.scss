@@ -1,0 +1,13 @@
+.pagination {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 48px;
+    gap: 16px;
+  }
+  &__item {
+    flex: 0 0 57px;
+    max-width: 57px;
+  }
+}

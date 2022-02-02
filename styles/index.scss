@@ -1,0 +1,12 @@
+/** RULES */
+@import './reset';
+@import './mixins';
+@import './fonts';
+@import './base';
+
+@import '@/shared/Search';
+@import '@/shared/UiBadge';
+@import '@/shared/UiButton';
+@import '@/sections/Movies';
+@import '@/sections/Pagination';
+

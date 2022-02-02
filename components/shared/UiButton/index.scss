@@ -1,0 +1,32 @@
+.ui-button {
+  @include reset-btn();
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 56px;
+  border-radius: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  background-color: #4e00bb;
+  color: #fcfcfc;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #5e00e2;
+  }
+  &_active {
+    background-color: #373B51;
+    &:hover,
+    &:focus {
+      background-color: #373B51;
+    }
+  }
+}

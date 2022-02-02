@@ -1,0 +1,53 @@
+html,
+body,
+input,
+input::placeholder,
+textarea,
+textarea::placeholder,
+button {
+  font-family: "Ubuntu", "sans-serif";
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+body {
+  width: 100%;
+  min-width: 375px;
+  background-color: #14142B;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+input,
+input::placeholder,
+textarea,
+textarea::placeholder,
+button,
+span,
+div {
+  font-family: "ProximaNova", "sans-serif";
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}

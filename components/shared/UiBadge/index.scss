@@ -1,0 +1,29 @@
+.ui-badge {
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 59px;
+    min-height: 33px;
+    padding: 0 16px;
+    border-radius: 6px;
+
+    font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 0.75px;
+    font-weight: bold;
+
+    color: #ffffff;
+    background-color: #373B51;
+    &_red {
+      background-color: #e91c1c;
+    }
+    &_yellow {
+      background-color: #ffc700;
+    }
+    &_green {
+      background-color: #1ea608;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/base/*": ["./public/*"],
+      "@/layouts/*": ["components/layouts/*"],
+      "@/blocks/*": ["components/blocks/*"],
+      "@/sections/*": ["components/sections/*"],
+      "@/shared/*": ["components/shared/*"],
+      "@/actions/*": ["store/actions/*"],
+      "@/helpers/*": ["store/helpers/*"],
+    }
+  }
+}
