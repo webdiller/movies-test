@@ -34,7 +34,7 @@ export default function Search({ placeholder }) {
 
   const handleChange = (event) => {
     const {value} = event.target;
-    setCurrentSearch(value.trim())
+    setCurrentSearch(value)
   }
 
   const handleReset = () => {
