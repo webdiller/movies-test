@@ -5,6 +5,10 @@ $rootContainer: ".search";
     #{$rootContainer}__container {
       margin-top: 64px;
       margin-bottom: 36px;
+      @include media("<=768px") {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
     }
     &.disabled {
       #{$rootContainer}__icon {
@@ -21,14 +25,24 @@ $rootContainer: ".search";
   &__container {
     display: flex;
     align-items: center;
+    height: 56px;
+    @include media("<=768px") {
+      display: block;
+      height: auto;
+    }
   }
 
   &__group {
     position: relative;
     flex: 1 1 auto;
-    height: 56px;
+    height: 100%;
     margin-right: 16px;
     transition: all 0.3s ease;
+    @include media("<=768px") {
+      height: 56px;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
   }
 
   &__icon {
@@ -98,5 +112,8 @@ $rootContainer: ".search";
 
   &__button {
     min-width: 94px;
+    @include media("<=768px") {
+      width: 100%;
+    }
   }
 }

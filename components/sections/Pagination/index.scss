@@ -5,6 +5,11 @@
     justify-content: center;
     margin-top: 48px;
     gap: 16px;
+    margin-bottom: 66px;
+    @include media("<=991px") {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
   }
   &__item {
     flex: 0 0 57px;

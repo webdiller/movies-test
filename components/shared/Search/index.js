@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import UiButton from "@/shared/UiButton";
@@ -6,8 +6,9 @@ import { useRouter } from "next/router";
 
 export default function Search({ placeholder }) {
   const router = useRouter();
-  const [currentSearch, setCurrentSearch] = useState();
+  const [currentSearch, setCurrentSearch] = useState("");
   const [focused, setFocused] = useState(false);
+  const formRef = useRef()
   const focusedHandler = (focus) => () => setFocused(focus);
 
   const handleSubmit = async (event) => {
@@ -37,7 +38,9 @@ export default function Search({ placeholder }) {
   }
 
   const handleReset = () => {
+    setCurrentSearch("")
     router.push(`/`);
+    formRef.current.searchValue.focus();
   };
 
   useEffect(() => {
@@ -70,7 +73,7 @@ export default function Search({ placeholder }) {
           : "search search_with-margins disabled"
       }
     >
-      <form onSubmit={handleSubmit} className="container search__container">
+      <form ref={formRef} onSubmit={handleSubmit} className="container search__container">
         <div className="search__group">
           <BiSearch className="search__icon search__icon-search" />
           <input
@@ -78,7 +81,6 @@ export default function Search({ placeholder }) {
             onBlur={focusedHandler(false)}
             onChange={handleChange}
             value={currentSearch}
-            defaultValue={currentSearch}
             placeholder={placeholder}
             type="text"
             name="searchValue"

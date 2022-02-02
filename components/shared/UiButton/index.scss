@@ -24,6 +24,7 @@
   }
   &_active {
     background-color: #373B51;
+    pointer-events: none;
     &:hover,
     &:focus {
       background-color: #373B51;
