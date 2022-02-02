@@ -8,6 +8,8 @@ export default function Search({ placeholder }) {
   const router = useRouter();
   const [currentSearch, setCurrentSearch] = useState("");
   const [focused, setFocused] = useState(false);
+  const [loading, setLoding] = useState(false);
+
   const formRef = useRef()
   const focusedHandler = (focus) => () => setFocused(focus);
 
@@ -15,14 +17,15 @@ export default function Search({ placeholder }) {
     event.preventDefault();
     if (currentSearch) {
       try {
-        const res = await fetch(
-          `https://movies-test.grapi.ru/search?q=${currentSearch}&p=1`
-        );
+        setLoding(true)
+        const res = await fetch(`https://movies-test.grapi.ru/search?q=${currentSearch}&p=1`);
         const movies = await res.json();
         if (movies.results.length === 0) {
+          setLoding(false)
           alert("Нет результатов");
           event.target.searchValue.focus();
         } else {
+          setLoding(false)
           router.push(`/movies?q=${currentSearch}&p=1`);
         }
       } catch (error) {
@@ -100,7 +103,8 @@ export default function Search({ placeholder }) {
           type="submit"
           tagName="button"
           innerText="Найти"
-          customClass="search__button"
+          disabled={loading ? true : false}
+          customClass={loading ? "ui-button_loading search__button" : "search__button"}
         />
       </form>
     </div>

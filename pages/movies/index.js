@@ -3,10 +3,11 @@ import CustomHead from "@/layouts/CustomHead";
 import MovieLayout from "components/sections/Movies/MovieLayout";
 import Pagination from "@/sections/Pagination";
 
-export default function Home({ movies }) {
+export default function Home({ movies, currentQuery }) {
+  console.log(currentQuery);
   return (
     <>
-      <CustomHead title="Главная" />
+      <CustomHead title={`Поиск по ${currentQuery}`} />
       <MovieLayout movies={movies} />
       {movies.total_pages > 0 && (
         <Pagination total_pages={movies.total_pages} />
@@ -33,15 +34,8 @@ export async function getServerSideProps(context) {
     return {
       props: {
         movies,
+        currentQuery: query
       },
     };
   }
 }
-
-Home.getLayout = function getLayout(page) {
-  return (
-    <DefaultLayout description="Website main page description" title="Главная">
-      {page}
-    </DefaultLayout>
-  );
-};

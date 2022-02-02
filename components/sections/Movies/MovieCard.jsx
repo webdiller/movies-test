@@ -38,10 +38,8 @@ export default function MovieCard({
         <Image
           objectFit="cover"
           alt={title}
-          quality={100}
           width={232}
           height={348}
-          layout="responsive"
           src={src}
           placeholder="blur"
           blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}

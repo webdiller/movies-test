@@ -1,5 +1,6 @@
 .ui-button {
   @include reset-btn();
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -12,6 +13,7 @@
 
   background-color: #4e00bb;
   color: #fcfcfc;
+  overflow: hidden;
 
   font-weight: 700;
   text-decoration: none;
@@ -23,11 +25,44 @@
     background-color: #5e00e2;
   }
   &_active {
-    background-color: #373B51;
+    background-color: #373b51;
     pointer-events: none;
     &:hover,
     &:focus {
-      background-color: #373B51;
+      background-color: #373b51;
     }
+  }
+  &_loading {
+    cursor: wait;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 100%;
+      background: repeating-linear-gradient(
+      60deg, 
+      transparent, 
+      transparent 0.75rem, 
+      rgba(255,255,255,.1) 0.75rem, 
+      rgba(255,255,255,.1) 1.5rem);
+      animation: load 1s infinite linear;
+      transition: all .3s ease;
+      pointer-events: none;
+    }
+  }
+
+  &__text {
+    position: relative;
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
   }
 }
